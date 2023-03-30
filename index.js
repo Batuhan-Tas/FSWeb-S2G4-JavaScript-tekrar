@@ -18,7 +18,7 @@ function KareninAlani(kenaruzunlugu){
 }
 
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
-
+console.log(KareninAlani(10));
 
 
 /* 	GÖREV 1:  
@@ -29,13 +29,13 @@ function KareninAlani(kenaruzunlugu){
 			4. Hesaplanan çemberin çevresi döndürülecektir.
 		*/
 
-function CemberinCevresi(/* kodlar buraya */){
-	/* kodlar buraya */
+function CemberinCevresi(yaricap){
+	return 2*pi*yaricap;
 }
 
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
-
+console.log(CemberinCevresi(5));
 
 
 
@@ -47,13 +47,13 @@ function CemberinCevresi(/* kodlar buraya */){
 			4. Hesaplanan çemberin alanı döndürülecektir.
 		*/
 		
-function CemberinAlani(/* kodlar buraya */){
-	/* kodlar buraya */
+function CemberinAlani(yaricap,pi){
+	return pi*Math.pow(yaricap,2);
 }
 
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
-
+console.log(CemberinAlani(15,pi));
 
 
 /* 	GÖREV 3:
@@ -73,45 +73,71 @@ function CemberinAlani(/* kodlar buraya */){
 
 
 
-	var ucetambolunenler, enkucuk, enbuyuk, ucebolunenlerintoplami, besyuzdenkucuksayilar, siralisayilar, tekraredensayilar;
+	var ucetambolunenler =[], enkucuk, enbuyuk, ucebolunenlerintoplami, besyuzdenkucuksayilar, siralisayilar, tekraredensayilar;
 	
 	//3a çözümü
+	enbuyuk = -Infinity;
+	enkucuk = Infinity;
 
-	/* kodlar buraya */
-	
+	for(let i=0;i<sayilar.length;i++){
+		if(sayilar[i]>enbuyuk){
+			enbuyuk = sayilar[i];
+		}
+	}
+	for(let i=0;i<sayilar.length;i++){
+		if(sayilar[i]<enkucuk){
+			enkucuk = sayilar[i];
+		}
+	}
 	
 	
 	// 3b çözümü:
 
-	/* kodlar buraya */
+	sayilar.forEach(function(number){
+		if(number%3==0){
+			ucetambolunenler.push(number);
+		}
+		return ucetambolunenler;
+		
+	})
 		
 		
 		
 	//3c çözümü:
 	
-	/* kodlar buraya */
+	ucetambolunenler.reduce(function(acc,number){
+		ucebolunenlerintoplami = acc+number;
+		return ucebolunenlerintoplami;
+	})
 
 	
 	
 	//3d çözümü
 	
-	/* kodlar buraya */
+	besyuzdenkucuksayilar = sayilar.filter((number) => {
+		return number<500;
+	})
 
 
 
 	//3e çözümü
 
-	/* kodlar buraya */
+	siralisayilar = besyuzdenkucuksayilar.sort((a,b)=>a-b);
 	
 	
 	//3f çözümü
-	
-	/* kodlar buraya */
-
-
-
-
-	
+	tekraredensayilar = [];
+	const counts = {};
+	let countArr = Object.entries(counts);
+	sayilar.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+	for(let i=0; i<countArr.length;i++){
+		if(countArr[i]>1){
+			tekraredensayilar.push(i);
+		}
+		
+	}
+	console.log(tekraredensayilar);
+		
 		
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
